@@ -10,12 +10,12 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonsignin;
     private EditText editTextEmail;
     private EditText editTextPassword;
-    private EditText textEmailAddress;
+    //private EditText textEmailAddress;
     private TextView textviewsignup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        
+
     }
 }
