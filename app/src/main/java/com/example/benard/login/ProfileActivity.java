@@ -43,6 +43,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
+        if (view==buttonlogout){
+            firebaseAuth.signOut();
+            startActivity(new Intent(this,LoginActivity.class));
+
+        }
 
     }
 }

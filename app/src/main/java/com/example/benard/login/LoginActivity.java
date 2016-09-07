@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText editTextEmail;
     private EditText editTextPassword;
     //private EditText textEmailAddress;
-    private TextView textviewsignup;
+    private TextView textviewsigin;
     //private progressDialog progressDialog;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
@@ -33,17 +33,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         buttonsignin =(Button) findViewById (R.id.buttonsignin);
         editTextEmail=(EditText)findViewById(R.id.editTextEmail);
         editTextEmail=(EditText)findViewById(R.id.editTextPassword);
-        textviewsignup=(TextView)findViewById(R.id.textviewsignin);
+        textviewsigin=(TextView)findViewById(R.id.textviewsigin);
+
         progressDialog=new ProgressDialog(this);
+        buttonsignin.setOnClickListener(this);
+        textviewsigin.setOnClickListener(this);
         firebaseAuth= FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser()!=null){
-            finish();
             startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
-
+            finish();
         }
 
-        buttonsignin.setOnClickListener(this);
-        textviewsignup.setOnClickListener(this);
+
 
     }
     private void userLogin(){
@@ -82,8 +83,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (view==buttonsignin){
             userLogin();
         }
-        else if (view==textviewsignup){
-            finish();
+        else if (view==textviewsigin){
+            //finish();
             startActivity(new Intent(this,MainActivity.class) );
         }
 
