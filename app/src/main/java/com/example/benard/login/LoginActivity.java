@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         buttonsignin =(Button) findViewById (R.id.buttonsignin);
         editTextEmail=(EditText)findViewById(R.id.editTextEmail);
-        editTextEmail=(EditText)findViewById(R.id.editTextPassword);
+        editTextPassword=(EditText)findViewById(R.id.editTextPassword);
         textviewsigin=(TextView)findViewById(R.id.textviewsigin);
 
         progressDialog=new ProgressDialog(this);
@@ -60,14 +60,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 return;
             }
         }
-        progressDialog.setMessage("Register user");
+        progressDialog.setMessage("Login in");
         progressDialog.show();
         firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressDialog.dismiss();
                 if (task.isSuccessful()) {
-                    Toast.makeText(LoginActivity.this, "Registred succesfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login succesfully", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(LoginActivity.this, "Could not Register Succesfully", Toast.LENGTH_SHORT).show();
 
@@ -81,6 +81,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         if (view==buttonsignin){
+           // userLogin();
             userLogin();
         }
         else if (view==textviewsigin){
